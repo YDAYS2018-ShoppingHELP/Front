@@ -1,18 +1,38 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  	<Navbar/>
+  	<Products :products="filteredProducts"/>
   </div>
 </template>
 
 <script>
+// Add to template  <router-link to="/">Home</router-link> | <router-link to="/about">About</router-link>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import { mapState } from "vuex";
+// components
+import Products from "@/components/Products.vue";
+import Navbar from "@/components/Navbar.vue";
+
+// TODO : (mostafa) import only usefull icons
+import Vue from "vue";
+import VueMaterial from "vue-material";
+import "vue-material/dist/vue-material.min.css";
+
+Vue.use(VueMaterial);
 
 export default {
   name: "home",
   components: {
-    HelloWorld
+    Products,
+    Navbar
+  },
+  data: () => {
+    return {
+      query: ""
+    };
+  },
+  computed: {
+    ...mapState(["filteredProducts"])
   }
 };
 </script>
