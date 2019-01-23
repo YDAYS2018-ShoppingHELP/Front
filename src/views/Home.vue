@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-  	<Navbar/>
   	<Products :products="filteredProducts"/>
   </div>
 </template>
