@@ -6,7 +6,11 @@
 	</span>
   	<span class="center"><searchProduct/></span>
   	<span class="center"><panel price=200 /></span>
-  	<span class="pointer pr3 hover-custom-blue"><md-icon style="font-size: 36px!important;">view_headline</md-icon></span>
+  	<span class="pointer pr3 hover-custom-blue">
+      <router-link to="/dashboard">
+        <md-icon style="font-size: 36px!important;">view_headline</md-icon>
+      </router-link>
+    </span>
   </div>
 </template>
 
@@ -30,4 +34,11 @@ export default {
 </script>
 
 <style>
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+}
 </style>
