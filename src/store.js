@@ -7,7 +7,9 @@ export default new Vuex.Store({
   state: {
     products: [
       { id: 1, name: "Oeufs", description: "Le Goût Primeur Nature 17,5% MG" },
-      { id: 2, name: "Lait", description: "Le Goût Primeur Nature 17,5% MG" }
+      { id: 2, name: "Lait", description: "Le Goût Primeur Nature 17,5% MG." },
+      { id: 3, name: "Lait", description: "Le Goût Primeur Nature 17,5% MG" },
+      { id: 4, name: "Lait", description: "Le Goût Primeur Nature 17,5% MG" }
     ],
     filteredProducts: []
   },
