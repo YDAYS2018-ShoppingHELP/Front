@@ -21,7 +21,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   font-size: 14px;
 }
 
@@ -31,6 +30,10 @@ export default {
 
 .bg-primary-color {
   background-color: #e74c3c;
+}
+
+.hover-primary-color:hover {
+  color: #e74c3c;
 }
 
 .border-primary-color {
