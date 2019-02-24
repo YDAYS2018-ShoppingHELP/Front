@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap items-center">
+  <div class="flex flex-wrap justify-center mt5">
     <Product v-for="product in products" :product="product"/>
   </div>
 </template>
