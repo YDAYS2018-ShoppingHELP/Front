@@ -6,10 +6,16 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "panel",
   props: {
     price: String
+  },
+
+  computed: {
+    ...mapState(["panelPrice"])
   }
 };
 </script>
