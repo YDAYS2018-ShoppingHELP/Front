@@ -32,6 +32,10 @@ export default {
   background-color: #e74c3c;
 }
 
+.b--primary-color {
+  border-color: #e74c3c;
+}
+
 .hover-primary-color:hover {
   color: #e74c3c;
 }
@@ -53,5 +57,9 @@ export default {
   -moz-transition: none !important;
   -o-transition: none !important;
   transition: none !important;
+}
+
+.br-50 {
+  border-radius: 50%;
 }
 </style>
