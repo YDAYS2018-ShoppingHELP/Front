@@ -10,7 +10,7 @@
     	<span class="center"><searchProduct/></span>
     	<span class="center">
         <router-link to="/panel">
-          <panel price=200 />
+          <panel />
         </router-link>
       </span>
     	<span class="pointer pr3 hover-custom-blue" @click="showDropdown=!showDropdown">

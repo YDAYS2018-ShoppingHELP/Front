@@ -7,10 +7,20 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
+import { mapActions } from "vuex";
+
 export default {
   name: "dashboard",
   components: {
     Navbar
+  },
+
+  methods: {
+    ...mapActions(["initPanelPrice"])
+  },
+
+  created() {
+    this.initPanelPrice();
   }
 };
 </script>

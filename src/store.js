@@ -35,8 +35,10 @@ export default new Vuex.Store({
       }
     ],
     filteredProducts: [],
-    panel: []
+    panel: [],
+    panelPrice: 0
   },
+
   mutations: {
     filterProducts(state, query) {
       state.filteredProducts = state.products.filter(product =>
@@ -47,14 +49,17 @@ export default new Vuex.Store({
     addProductToPanel(state, product) {
       if (!state.panel.find(({ _id }) => _id === product._id)) {
         product.existsInPanel = true;
-        product.qty = 1;
+        product.qty += 1;
         state.panel.push(product);
+        state.panelPrice += product.price;
       }
     },
 
     removeProductFromPanel(state, product) {
       product.existsInPanel = false;
+      product.qty = 0;
       state.panel = state.panel.filter(({ _id }) => _id !== product._id);
+      state.panelPrice -= product.price;
     },
 
     reduceProductQty(state, product) {
@@ -65,6 +70,7 @@ export default new Vuex.Store({
       let foundedProduct = state.panel.find(({ _id }) => _id === product._id);
       if (foundedProduct && product.qty > 0) {
         foundedProduct.qty -= 1;
+        state.panelPrice -= foundedProduct.price;
       }
     },
 
@@ -72,6 +78,7 @@ export default new Vuex.Store({
       let foundedProduct = state.panel.find(({ _id }) => _id === product._id);
       if (foundedProduct) {
         foundedProduct.qty += 1;
+        state.panelPrice += foundedProduct.price;
       }
     },
 
@@ -82,9 +89,20 @@ export default new Vuex.Store({
       if (foundedProduct) {
         foundedProduct.isFavorite = !foundedProduct.isFavorite;
       }
+    },
+
+    initPanelPrice(state) {
+      state.panelPrice = state.panel.reduce(
+        (acc, product) => (acc += product.price),
+        0
+      );
     }
   },
   actions: {
+    initPanelPrice({ commit }) {
+      commit("initPanelPrice");
+    },
+
     addProductToPanel({ commit }, product) {
       commit("addProductToPanel", product);
     },
