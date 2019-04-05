@@ -12,6 +12,7 @@ export default new Vuex.Store({
         description: "Le Goût Primeur Nature 17,5% MG",
         price: 13,
         existsInPanel: false,
+        isFavorite: false,
         qty: 0
       },
       {
@@ -20,6 +21,7 @@ export default new Vuex.Store({
         description: "Le Goût Primeur Nature 17,5% MG.",
         price: 13,
         existsInPanel: false,
+        isFavorite: false,
         qty: 0
       },
       {
@@ -28,6 +30,7 @@ export default new Vuex.Store({
         description: "Le Goût Primeur Nature 17,5% MG",
         price: 13,
         existsInPanel: false,
+        isFavorite: false,
         qty: 0
       }
     ],
@@ -50,6 +53,7 @@ export default new Vuex.Store({
     },
 
     removeProductFromPanel(state, product) {
+      product.existsInPanel = false;
       state.panel = state.panel.filter(({ _id }) => _id !== product._id);
     },
 
@@ -69,6 +73,15 @@ export default new Vuex.Store({
       if (foundedProduct) {
         foundedProduct.qty += 1;
       }
+    },
+
+    toggleFacoriteProduct(state, product) {
+      let foundedProduct = state.products.find(
+        ({ _id }) => _id === product._id
+      );
+      if (foundedProduct) {
+        foundedProduct.isFavorite = !foundedProduct.isFavorite;
+      }
     }
   },
   actions: {
@@ -82,6 +95,10 @@ export default new Vuex.Store({
 
     increaseProductQty({ commit }, product) {
       commit("increaseProductQty", product);
+    },
+
+    toggleFacoriteProduct({ commit }, product) {
+      commit("toggleFacoriteProduct", product);
     }
   }
 });

@@ -1,6 +1,10 @@
 <template>
   <div class="product bb b--primary-color ma2 pv2 w-30 flex relative">
-  	<div class="bg-light-gray w-50"></div>
+    <span class="pointer" @click="toggleFacoriteProduct(product)">
+      <md-icon v-if="product.isFavorite" class="primary-color" style="position: absolute; top: 5px; right: 5px;">star</md-icon>
+      <md-icon v-else class="gray" style="position: absolute; top: 5px; right: 5px;">star</md-icon>
+    </span>
+    <div class="bg-light-gray w-50"></div>
   	<div class="w-60 ph3 tl">
 	    <div class="fw7 primary-color">{{product.name}}</div>
 	    <span class="dib">{{product.description}}</span>
@@ -31,7 +35,8 @@ export default {
     ...mapActions([
       "addProductToPanel",
       "reduceProductQty",
-      "increaseProductQty"
+      "increaseProductQty",
+      "toggleFacoriteProduct"
     ])
   }
 };
