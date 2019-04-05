@@ -11,21 +11,24 @@ export default new Vuex.Store({
         name: "Oeufs",
         description: "Le Goût Primeur Nature 17,5% MG",
         price: 13,
-        existsInPanel: false
+        existsInPanel: false,
+        qty: 0
       },
       {
         _id: 2,
         name: "Lait",
         description: "Le Goût Primeur Nature 17,5% MG.",
         price: 13,
-        existsInPanel: false
+        existsInPanel: false,
+        qty: 0
       },
       {
         _id: 3,
         name: "Lait",
         description: "Le Goût Primeur Nature 17,5% MG",
         price: 13,
-        existsInPanel: false
+        existsInPanel: false,
+        qty: 0
       }
     ],
     filteredProducts: [],
@@ -46,7 +49,15 @@ export default new Vuex.Store({
       }
     },
 
+    removeProductFromPanel(state, product) {
+      state.panel = state.panel.filter(({ _id }) => _id !== product._id);
+    },
+
     reduceProductQty(state, product) {
+      if (product.qty === 1) {
+        this.commit("removeProductFromPanel", product);
+        return;
+      }
       let foundedProduct = state.panel.find(({ _id }) => _id === product._id);
       if (foundedProduct && product.qty > 0) {
         foundedProduct.qty -= 1;
