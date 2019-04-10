@@ -28,6 +28,11 @@
           <a href="">Mon panier</a>
         </span>  
       </router-link>
+      <router-link to="/supermarkets">
+        <span @click="showDropdown=!showDropdown" class="db w-100 pa2 bg-dark-gray pointer" style="margin-top: 1px;">
+          <a href="">Super marchets</a>
+        </span>  
+      </router-link>
       <router-link to="/account">
         <span @click="showDropdown=!showDropdown" class="db w-100 pa2 bg-dark-gray pointer" style="margin-top: 1px;">
           <a href="">Mon compte</a>

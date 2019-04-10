@@ -1,13 +1,13 @@
 <template>
-  <div class="markets mt5">
-  	<h3 class="tc">Vos supermarchés favoris</h3>
+  <div class="super-markets mt5">
+  	<h3 class="tc">Les supermarchés</h3>
   	<SuperMarket />
   	<SuperMarket />
   	<SuperMarket />
   	<SuperMarket />
   	<!-- If type = show more || create new compoent ? -->
   	<ShowMore />
-	  <AddMore />
+	<AddMore />
   </div>
 </template>
 
@@ -16,7 +16,7 @@ import SuperMarket from "@/components/SuperMarket";
 import AddMore from "@/components/AddMore";
 import ShowMore from "@/components/ShowMore";
 export default {
-  name: "supermarkets",
+  name: "supermarket",
   props: {
     markets: Array
   },

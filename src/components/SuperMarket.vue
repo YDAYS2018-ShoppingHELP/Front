@@ -1,5 +1,5 @@
 <template>
-  <div class="dib favorite-market relative pa5 ma2 pointer">
+  <div class="dib super-market relative pa5 ma2 pointer">
   	<div class="default bg-light-gray absolute left-0 top-0 w-100 h-100 z-1"></div>
 
     <div class="flex items-center justify-center bg-dark-gray light-gray o-80 absolute left-0 top-0 w-100 h-100 z-0">
@@ -10,15 +10,15 @@
 
 <script>
 export default {
-  name: "favoriteMarket",
+  name: "supermarket",
   props: {
-    favoriteMarket: Object
+    superMarket: Object
   }
 };
 </script>
 
 <style lang="scss">
-.favorite-market:hover {
+.super-market:hover {
   .default {
     display: none;
   }

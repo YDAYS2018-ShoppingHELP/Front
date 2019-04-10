@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import About from "./views/About.vue";
 import Dashboard from "./views/Dashboard.vue";
 import Panel from "./views/Panel.vue";
+import SuperMarkets from "./views/SuperMarkets.vue";
 
 Vue.use(Router);
 
@@ -30,6 +31,11 @@ export default new Router({
       path: "/panel",
       name: "panel",
       component: Panel
+    },
+    {
+      path: "/supermarkets",
+      name: "SuperMarkets",
+      component: SuperMarkets
     }
   ]
 });
