@@ -5,6 +5,13 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    superMarkets: [
+      { _id: 1, name: "Carrefour", isFavorite: true },
+      { _id: 2, name: "LIDL", isFavorite: false },
+      { _id: 3, name: "Auchan", isFavorite: false },
+      { _id: 4, name: "Carrefour", isFavorite: false }
+    ],
+    favoriteSuperMarkets: [{ _id: 1, name: "Carrefour", isFavorite: true }],
     products: [
       {
         _id: 1,
@@ -12,7 +19,7 @@ export default new Vuex.Store({
         description: "Le Goût Primeur Nature 17,5% MG",
         price: 13,
         existsInPanel: false,
-        isFavorite: false,
+        isFavorite: true,
         qty: 0
       },
       {
@@ -31,6 +38,17 @@ export default new Vuex.Store({
         price: 13,
         existsInPanel: false,
         isFavorite: false,
+        qty: 0
+      }
+    ],
+    favoriteProducts: [
+      {
+        _id: 1,
+        name: "Oeufs",
+        description: "Le Goût Primeur Nature 17,5% MG",
+        price: 13,
+        existsInPanel: false,
+        isFavorite: true,
         qty: 0
       }
     ],
@@ -82,13 +100,46 @@ export default new Vuex.Store({
       }
     },
 
-    toggleFacoriteProduct(state, product) {
-      let foundedProduct = state.products.find(
-        ({ _id }) => _id === product._id
+    addFavoriteProduct(state, product) {
+      product.isFavorite = true;
+      state.favoriteProducts.push(product);
+    },
+
+    removeFavoriteProduct(state, product) {
+      let productId = product._id;
+      state.products.find(({ _id }) => _id === productId).isFavorite = false;
+      state.favoriteProducts = state.favoriteProducts.filter(
+        ({ _id }) => _id !== productId
       );
-      if (foundedProduct) {
-        foundedProduct.isFavorite = !foundedProduct.isFavorite;
+    },
+
+    toggleFavoriteProduct(_, product) {
+      if (!product.isFavorite) {
+        return this.commit("addFavoriteProduct", product);
       }
+      return this.commit("removeFavoriteProduct", product);
+    },
+
+    addFavoriteSuperMarket(state, superMarket) {
+      superMarket.isFavorite = true;
+      state.favoriteSuperMarkets.push(superMarket);
+    },
+
+    removeFavoriteSuperMarket(state, superMarket) {
+      let superMarketId = superMarket._id;
+      state.superMarkets.find(
+        ({ _id }) => _id === superMarketId
+      ).isFavorite = false;
+      state.favoriteSuperMarkets = state.favoriteSuperMarkets.filter(
+        ({ _id }) => superMarketId !== _id
+      );
+    },
+
+    toggleFavoriteSuperMarket(state, superMarket) {
+      if (!superMarket.isFavorite) {
+        return this.commit("addFavoriteSuperMarket", superMarket);
+      }
+      return this.commit("removeFavoriteSuperMarket", superMarket);
     },
 
     initPanelPrice(state) {
@@ -115,8 +166,20 @@ export default new Vuex.Store({
       commit("increaseProductQty", product);
     },
 
-    toggleFacoriteProduct({ commit }, product) {
-      commit("toggleFacoriteProduct", product);
+    toggleFavoriteProduct({ commit }, product) {
+      commit("toggleFavoriteProduct", product);
+    },
+
+    removeFavoriteProduct({ commit }, product) {
+      commit("removeFavoriteProduct", product);
+    },
+
+    toggleFavoriteSuperMarket({ commit }, superMarket) {
+      commit("toggleFavoriteSuperMarket", superMarket);
+    },
+
+    removeFavoriteSuperMarket({ commit }, superMarket) {
+      commit("removeFavoriteSuperMarket", superMarket);
     }
   }
 });

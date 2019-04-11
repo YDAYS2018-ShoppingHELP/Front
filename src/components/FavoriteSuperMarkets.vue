@@ -1,29 +1,31 @@
 <template>
   <div class="markets mt5">
   	<h3 class="tc">Vos supermarchés favoris</h3>
-  	<SuperMarket />
-  	<SuperMarket />
-  	<SuperMarket />
-  	<SuperMarket />
+  	<FavoriteSuperMarket v-for="favoriteSuperMarket in favoriteSuperMarkets" :favoriteSuperMarket="favoriteSuperMarket" />
   	<!-- If type = show more || create new compoent ? -->
   	<ShowMore />
-	  <AddMore />
+	  <AddMore route="/superMarkets"/>
   </div>
 </template>
 
 <script>
-import SuperMarket from "@/components/SuperMarket";
+import { mapState } from "vuex";
+// import components
+import FavoriteSuperMarket from "@/components/FavoriteSuperMarket";
 import AddMore from "@/components/AddMore";
 import ShowMore from "@/components/ShowMore";
 export default {
-  name: "supermarkets",
+  name: "favoritesupermarkets",
   props: {
     markets: Array
   },
   components: {
-    SuperMarket,
+    FavoriteSuperMarket,
     AddMore,
     ShowMore
+  },
+  computed: {
+    ...mapState(["favoriteSuperMarkets"])
   }
 };
 </script>

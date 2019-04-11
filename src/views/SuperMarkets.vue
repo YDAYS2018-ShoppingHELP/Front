@@ -1,17 +1,17 @@
 <template>
   <div class="super-markets mt5">
   	<h3 class="tc">Les supermarchés</h3>
-  	<SuperMarket />
-  	<SuperMarket />
-  	<SuperMarket />
-  	<SuperMarket />
+  	<SuperMarket v-for="superMarket in superMarkets" :superMarket="superMarket" />
   	<!-- If type = show more || create new compoent ? -->
   	<ShowMore />
-	<AddMore />
+	  <AddMore />
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
+// Import components
 import SuperMarket from "@/components/SuperMarket";
 import AddMore from "@/components/AddMore";
 import ShowMore from "@/components/ShowMore";
@@ -24,6 +24,9 @@ export default {
     SuperMarket,
     AddMore,
     ShowMore
+  },
+  computed: {
+    ...mapState(["superMarkets"])
   }
 };
 </script>

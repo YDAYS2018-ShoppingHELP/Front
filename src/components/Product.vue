@@ -1,6 +1,6 @@
 <template>
   <div class="product bb b--primary-color ma2 pv2 w-30 flex relative">
-    <span class="pointer" @click="toggleFacoriteProduct(product)">
+    <span class="pointer" @click="toggleFavoriteProduct(product)">
       <md-icon v-if="product.isFavorite" class="primary-color" style="position: absolute; top: 5px; right: 5px;">star</md-icon>
       <md-icon v-else class="gray" style="position: absolute; top: 5px; right: 5px;">star</md-icon>
     </span>
@@ -36,7 +36,7 @@ export default {
       "addProductToPanel",
       "reduceProductQty",
       "increaseProductQty",
-      "toggleFacoriteProduct"
+      "toggleFavoriteProduct"
     ])
   }
 };

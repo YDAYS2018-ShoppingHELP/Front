@@ -72,4 +72,9 @@ export default {
 .br-50 {
   border-radius: 50%;
 }
+
+input {
+  outline: none;
+  border: 1px solid gray;
+}
 </style>

@@ -1,17 +1,16 @@
 <template>
   <div class="markets mt4">
   	<h3 class="tc">Vos produits favoris</h3>
-  	<FavoriteProduct />
-  	<FavoriteProduct />
-  	<FavoriteProduct />
-  	<FavoriteProduct />
+  	<FavoriteProduct v-for="favoriteProduct in favoriteProducts" :favoriteProduct="favoriteProduct" />
   	<!-- If type = show more || create new component ? -->
   	<ShowMore />
-    <AddMore />
+    <AddMore route="/" />
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
+// Import components
 import FavoriteProduct from "@/components/FavoriteProduct";
 import ShowMore from "@/components/ShowMore";
 import AddMore from "@/components/AddMore";
@@ -24,6 +23,9 @@ export default {
     FavoriteProduct,
     ShowMore,
     AddMore
+  },
+  computed: {
+    ...mapState(["favoriteProducts"])
   }
 };
 </script>

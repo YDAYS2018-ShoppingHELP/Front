@@ -5,6 +5,7 @@ import About from "./views/About.vue";
 import Dashboard from "./views/Dashboard.vue";
 import Panel from "./views/Panel.vue";
 import SuperMarkets from "./views/SuperMarkets.vue";
+import PersonalInfos from "./views/PersonalInfos";
 
 Vue.use(Router);
 
@@ -36,6 +37,11 @@ export default new Router({
       path: "/supermarkets",
       name: "SuperMarkets",
       component: SuperMarkets
+    },
+    {
+      path: "/personalinfos",
+      name: "PersonalInfos",
+      component: PersonalInfos
     }
   ]
 });

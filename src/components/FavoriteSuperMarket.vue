@@ -1,5 +1,5 @@
 <template>
-  <div class="dib favorite-market relative pa5 ma2 pointer" @click="toggleFavoriteProduct(favoriteProduct)">
+  <div class="dib super-market relative pa5 ma2 pointer" @click="removeFavoriteSuperMarket(favoriteSuperMarket)">
   	<div class="default bg-light-gray absolute left-0 top-0 w-100 h-100 z-1"></div>
 
     <div class="flex items-center justify-center bg-dark-gray light-gray o-80 absolute left-0 top-0 w-100 h-100 z-0">
@@ -12,18 +12,18 @@
 import { mapActions } from "vuex";
 
 export default {
-  name: "favoriteProduct",
+  name: "favoriteSuperMarket",
   props: {
-    favoriteProduct: Object
+    favoriteSuperMarket: Object
   },
   methods: {
-    ...mapActions(["toggleFavoriteProduct"])
+    ...mapActions(["removeFavoriteSuperMarket"])
   }
 };
 </script>
 
 <style lang="scss">
-.favorite-market:hover {
+.super-market:hover {
   .default {
     display: none;
   }
