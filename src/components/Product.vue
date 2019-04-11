@@ -6,13 +6,13 @@
     </span>
     <div class="bg-light-gray w-50"></div>
   	<div class="w-60 ph3 tl">
-	    <div class="fw7 primary-color">{{product.name}}</div>
+	    <div class="fw7 primary-color">{{product.name}} <span v-if="market"> - {{market.name}}</span></div>
 	    <span class="dib">{{product.description}}</span>
 	  </div>
 
     <div v-if="product.existsInPanel" class="absolute bottom-0 right-0 w-20 mb2 white tc br4 pointer">
       <span class="dib w1 ph1 bg-primary-color ba b--primary-color addon-left" @click="reduceProductQty(product)">-</span>
-      <span class="dib ph3 ba b--light-gray black">{{product.qty}}</span>
+      <span class="dib ph1 ba b--light-gray black">{{product.qty}}*{{price || product.price}} €</span>
       <span class="dib w1 ph1 bg-primary-color ba b--primary-color addon-right" @click="increaseProductQty(product)">+</span>
     </div>
 	  <div v-else class="absolute bottom-0 right-0 w-20 pv1 mb2 bg-primary-color white tc br4 pointer" @click="addProductToPanel(product);">
@@ -28,7 +28,9 @@ import { mapActions } from "vuex";
 export default {
   name: "product",
   props: {
-    product: Object
+    product: Object,
+    market: Object,
+    price: Number
   },
 
   methods: {

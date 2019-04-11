@@ -1,9 +1,9 @@
 <template>
   <div class="markets mt4">
   	<h3 class="tc">Vos produits favoris</h3>
-  	<FavoriteProduct v-for="favoriteProduct in favoriteProducts" :favoriteProduct="favoriteProduct" />
+  	<FavoriteProduct v-for="favoriteProduct in shownProducts" :favoriteProduct="favoriteProduct" />
   	<!-- If type = show more || create new component ? -->
-  	<ShowMore />
+  	<ShowMore v-if="favoriteProducts.length > 4" />
     <AddMore route="/" />
   </div>
 </template>
@@ -25,7 +25,10 @@ export default {
     AddMore
   },
   computed: {
-    ...mapState(["favoriteProducts"])
+    ...mapState(["favoriteProducts"]),
+    shownProducts() {
+      return this.favoriteProducts.filter((el, index) => index < 4);
+    }
   }
 };
 </script>

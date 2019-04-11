@@ -1,9 +1,9 @@
 <template>
   <div class="markets mt5">
   	<h3 class="tc">Vos supermarchés favoris</h3>
-  	<FavoriteSuperMarket v-for="favoriteSuperMarket in favoriteSuperMarkets" :favoriteSuperMarket="favoriteSuperMarket" />
+  	<FavoriteSuperMarket v-for="superMarket in shownSuperMarkets" :favoriteSuperMarket="superMarket" />
   	<!-- If type = show more || create new compoent ? -->
-  	<ShowMore />
+  	<ShowMore v-if="favoriteSuperMarkets.length > 4" />
 	  <AddMore route="/superMarkets"/>
   </div>
 </template>
@@ -25,7 +25,10 @@ export default {
     ShowMore
   },
   computed: {
-    ...mapState(["favoriteSuperMarkets"])
+    ...mapState(["favoriteSuperMarkets"]),
+    shownSuperMarkets() {
+      return this.favoriteSuperMarkets.filter((el, index) => index < 4);
+    }
   }
 };
 </script>

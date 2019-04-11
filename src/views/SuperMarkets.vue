@@ -3,8 +3,6 @@
   	<h3 class="tc">Les supermarchés</h3>
   	<SuperMarket v-for="superMarket in superMarkets" :superMarket="superMarket" />
   	<!-- If type = show more || create new compoent ? -->
-  	<ShowMore />
-	  <AddMore />
   </div>
 </template>
 
