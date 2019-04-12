@@ -17,91 +17,86 @@ export default new Vuex.Store({
     products: [
       {
         _id: 1,
-        name: "Oeufs",
-        description: "Le Goût Primeur Nature 17,5% MG",
-        price: 13,
+        name: "Oeufs frais calibre moyen",
+        description: "Oeufs frais calibre moyen. Les 30 oeufs.",
+        price: 2.9,
         existsInPanel: false,
-        isFavorite: true,
+        isFavorite: false,
         qty: 0
       },
       {
         _id: 2,
         name: "Lait",
         description: "Le Goût Primeur Nature 17,5% MG.",
-        price: 13,
+        price: 1.5,
         existsInPanel: false,
         isFavorite: false,
         qty: 0
       },
       {
         _id: 3,
-        name: "Lait",
-        description: "Le Goût Primeur Nature 17,5% MG",
-        price: 13,
+        name: "Crème liquide semi-épaisse",
+        description: "Crème liquide semi-épaisse 18% MG ELLE & VIRE",
+        price: 2.5,
         existsInPanel: false,
         isFavorite: false,
         qty: 0
       },
       {
         _id: 4,
-        name: "Lait",
-        description: "Le Goût Primeur Nature 17,5% MG",
-        price: 13,
+        name: "P'tit Basque brebis",
+        description: "La part de 320 g. 16.91 €/kg",
+        price: 5.4,
         existsInPanel: false,
         isFavorite: false,
         qty: 0
       },
       {
         _id: 5,
-        name: "Lait",
-        description: "Le Goût Primeur Nature 17,5% MG",
-        price: 13,
+        name: "Beure doux",
+        description: "La plaquette de 250g. 7.16 €/kg",
+        price: 2.2,
+        existsInPanel: false,
+        isFavorite: false,
+        qty: 0
+      },
+      {
+        _id: 6,
+        name: "Poulet fermier d'Auvergne",
+        description: "Poulet fermier",
+        price: 1.7,
         existsInPanel: false,
         isFavorite: false,
         qty: 0
       }
     ],
-    favoriteProducts: [
-      {
-        _id: 1,
-        name: "Oeufs",
-        description: "Le Goût Primeur Nature 17,5% MG",
-        price: 13,
-        existsInPanel: false,
-        isFavorite: true,
-        qty: 0
-      }
-    ],
+    favoriteProducts: [],
     filteredProducts: [],
     panel: [],
     panelProductsListBase: [
       {
         productId: 1,
-        markets: [{ marketId: 1, price: 13 }, { marketId: 2, price: 14 }]
+        markets: [{ marketId: 1, price: 2.7 }, { marketId: 2, price: 2.8 }]
       },
       {
         productId: 2,
-        markets: [{ marketId: 1, price: 16 }, { marketId: 2, price: 17 }]
+        markets: [{ marketId: 1, price: 1.5 }, { marketId: 2, price: 1.6 }]
       },
       {
         productId: 3,
-        markets: [{ marketId: 1, price: 1.6 }, { marketId: 2, price: 11 }]
+        markets: [{ marketId: 1, price: 2.5 }, { marketId: 2, price: 2.4 }]
       },
       {
         productId: 4,
-        markets: [{ marketId: 1, price: 2.3 }, { marketId: 2, price: 3 }]
+        markets: [{ marketId: 1, price: 5.4 }, { marketId: 2, price: 5.6 }]
       },
       {
         productId: 5,
-        markets: [{ marketId: 1, price: 3.5 }, { marketId: 2, price: 2 }]
+        markets: [{ marketId: 1, price: 2.2 }, { marketId: 2, price: 2.0 }]
       },
       {
         productId: 6,
-        markets: [{ marketId: 1, price: 0.9 }, { marketId: 2, price: 5 }]
-      },
-      {
-        productId: 7,
-        markets: [{ marketId: 1, price: 1.1 }, { marketId: 2, price: 7 }]
+        markets: [{ marketId: 1, price: 1.7 }, { marketId: 2, price: 1.9 }]
       }
     ],
     panelProductsList: [],

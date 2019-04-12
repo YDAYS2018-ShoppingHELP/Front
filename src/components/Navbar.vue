@@ -4,7 +4,7 @@
     	<span class="pl3">
     		<md-icon v-if="dashboardDisplay" style="font-size: 28px!important;">account_circle</md-icon>
         <router-link v-else to="/">
-    		  <md-icon style="font-size: 28px!important;">home</md-icon>
+          <img width="100px" height="50px" src="../../src/assets/ShoppyHelpNoir.png" />
         </router-link>
     	</span>
     	<span class="center"><searchProduct/></span>
